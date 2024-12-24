@@ -23,18 +23,13 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://postboxnews.com", "https://postboxnews.com"], 
     methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
-    credentials: true,
+    credentials: true, 
+    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Expires", "Pragma"],
   })
 );
+
 
 app.use(cookieParser());
 app.use(express.json());
