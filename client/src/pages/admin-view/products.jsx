@@ -24,6 +24,7 @@ const initialFormData = {
   title: "",
   description: "",
   category: "",
+  
 };
 
 function AdminProducts() {
@@ -86,7 +87,7 @@ function AdminProducts() {
 
   function isFormValid() {
     return Object.keys(formData)
-      .filter((currentKey) => currentKey !== "")
+      .filter((currentKey) => currentKey !== "averageReview")
       .map((key) => formData[key] !== "")
       .every((item) => item);
   }
@@ -101,7 +102,7 @@ function AdminProducts() {
     <Fragment>
       <div className="mb-5 w-full flex justify-end">
         <Button onClick={() => setOpenCreateProductsDialog(true)}>
-          Add New Product
+          Add
         </Button>
       </div>
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
@@ -128,7 +129,7 @@ function AdminProducts() {
         <SheetContent side="right" className="overflow-auto">
           <SheetHeader>
             <SheetTitle>
-              {currentEditedId !== null ? "Edit Product" : "Add New Product"}
+              {currentEditedId !== null ? "Edit" : "Add"}
             </SheetTitle>
           </SheetHeader>
           <ProductImageUpload

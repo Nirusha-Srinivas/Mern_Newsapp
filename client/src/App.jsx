@@ -1,10 +1,10 @@
-import { Route, Routes, Navigate } from "react-router-dom"; // Add Navigate
+import { Route, Routes } from "react-router-dom";
 import AuthLayout from "./components/auth/layout";
 import AuthLogin from "./pages/auth/login";
 import AdminLayout from "./components/admin-view/layout";
 import AdminProducts from "./pages/admin-view/products";
-import ShoppingLayout from "./components/shopping-view/layout";
 
+import ShoppingLayout from "./components/shopping-view/layout";
 import ShoppingHome from "./pages/shopping-view/home";
 import ShoppingListing from "./pages/shopping-view/listing";
 
@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./store/auth-slice";
 import { Skeleton } from "@/components/ui/skeleton";
-
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -32,19 +31,17 @@ function App() {
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
-        {/* Redirect default route to /newsapp/home */}
-        <Route path="/" element={<Navigate to="/newsapp/home" replace />} />
-
-        <Route path="/newsapp" element={<ShoppingLayout />}>
-          <Route path="home" element={<ShoppingHome />} />
-          <Route path="listing" element={<ShoppingListing />} />
-          {/* <Route path="checkout" element={<ShoppingCheckout />} />
-          <Route path="account" element={<ShoppingAccount />} />
-          <Route path="paypal-return" element={<PaypalReturnPage />} />
-          <Route path="payment-success" element={<PaymentSuccessPage />} />
-          <Route path="search" element={<SearchProducts />} /> */}
+        {/* Root URL serves the ShoppingLayout with ShoppingHome */}
+        <Route path="/" element={<ShoppingLayout />}>
+          <Route index element={<ShoppingHome />} />
         </Route>
 
+        {/* Listing route */}
+        <Route path="/listing" element={<ShoppingLayout />}>
+          <Route index element={<ShoppingListing />} />
+        </Route>
+
+        {/* Admin routes */}
         <Route
           path="/admin"
           element={
@@ -68,7 +65,7 @@ function App() {
         </Route>
 
         {/* Catch-all route for 404 */}
-       
+        <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
     </div>
   );

@@ -68,7 +68,7 @@ function ShoppingHome() {
     };
 
     sessionStorage.setItem("filters", JSON.stringify(currentFilter));
-    navigate(`/newsapp/listing`);
+    navigate(`/listing`);
   }
 
   function handleGetProductDetails(getCurrentProductId) {
@@ -120,7 +120,45 @@ function ShoppingHome() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      
+      <div className="relative w-full h-[600px] overflow-hidden">
+        {featureImageList && featureImageList.length > 0
+          ? featureImageList.map((slide, index) => (
+              <img
+                src={slide?.image}
+                key={index}
+                className={`${
+                  index === currentSlide ? "opacity-100" : "opacity-0"
+                } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000`}
+              />
+            ))
+          : null}
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() =>
+            setCurrentSlide(
+              (prevSlide) =>
+                (prevSlide - 1 + featureImageList.length) %
+                featureImageList.length
+            )
+          }
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80"
+        >
+          <ChevronLeftIcon className="w-4 h-4" />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() =>
+            setCurrentSlide(
+              (prevSlide) => (prevSlide + 1) % featureImageList.length
+            )
+          }
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80"
+        >
+          <ChevronRightIcon className="w-4 h-4" />
+        </Button>
+      </div>
 
       <section className="py-12">
         <div className="container mx-auto px-4">

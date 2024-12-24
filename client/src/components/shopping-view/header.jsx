@@ -104,18 +104,22 @@ function ShoppingHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="flex h-16 items-center justify-between px-4 md:px-6">
-        <Link to="/newsapp/home" className="flex items-center gap-2">
-          <HousePlug className="h-6 w-6" />
-          <span className="font-bold">Ecommerce</span>
-        </Link>
-        <div className="">
-          <MenuItems />
-        </div>
-
+    <div className="flex h-16 items-center justify-between px-4 md:px-6">
+      <Link to="/" className="flex items-center gap-2">
+        {/* Add the logo */}
+        <img
+          src="src/assets\postboxnews-logo.png"
+          alt="Postbox News Logo"
+          className="h-8 w-auto"
+        />
+        <span className="font-bold">Ecommerce</span>
+      </Link>
+      <div className="">
+        <MenuItems />
       </div>
-    </header>
-  );
+    </div>
+  </header>
+);
 }
 
 export default ShoppingHeader;

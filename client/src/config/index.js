@@ -72,23 +72,23 @@ export const shoppingViewHeaderMenuItems = [
   {
     id: "home",
     label: "Home",
-    path: "/newsapp/home",
+    path: "/",
   },
  
   {
     id: "Telangana",
     label: "Telangana",
-    path: "/newsapp/listing",
+    path: "/listing",
   },
   {
     id: "Andhrapradesh",
     label: "Andhra Pradesh",
-    path: "/newsapp/listing",
+    path: "/listing",
   },
   {
     id: "Tech",
     label: "Tech",
-    path: "/newsapp/listing",
+    path: "/listing",
   },
   
 ];
