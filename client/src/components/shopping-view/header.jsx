@@ -112,7 +112,6 @@ function ShoppingHeader() {
           alt="Postbox News Logo"
           className="h-8 w-auto"
         />
-        <span className="font-bold">Ecommerce</span>
       </Link>
       <div className="">
         <MenuItems />

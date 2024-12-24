@@ -12,7 +12,7 @@ const commonFeatureRouter = require("./routes/common/feature-routes");
 
 // Create a database connection
 mongoose
-  .connect("mongodb+srv://narasimharaotirumalla:ifZKiljhwSbD6Jf8@cluster0.coqq4.mongodb.net/")
+  .connect("mongodb+srv://postboxnewz:15a9Z1hR7Gcv3VvZ@cluster0.bb2h7.mongodb.net/")
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 

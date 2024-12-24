@@ -3,6 +3,8 @@ import AuthLayout from "./components/auth/layout";
 import AuthLogin from "./pages/auth/login";
 import AdminLayout from "./components/admin-view/layout";
 import AdminProducts from "./pages/admin-view/products";
+import AuthRegister from "./pages/auth/register";
+import AdminDashboard from "./pages/admin-view/dashboard";
 
 import ShoppingLayout from "./components/shopping-view/layout";
 import ShoppingHome from "./pages/shopping-view/home";
@@ -51,6 +53,7 @@ function App() {
           }
         >
           <Route path="login" element={<AuthLogin />} />
+          <Route path="register" element={<AuthRegister />} />
         </Route>
 
         <Route
@@ -62,6 +65,7 @@ function App() {
           }
         >
           <Route path="products" element={<AdminProducts />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
         </Route>
 
         {/* Catch-all route for 404 */}
