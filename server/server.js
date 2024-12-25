@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS
 app.use(
   cors({
-    origin: ["http://postboxnews.com", "https://postboxnews.com"],
+    origin: 'https://postboxnews.com', // Update this to your production frontend URL
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Expires", "Pragma"],
@@ -39,8 +39,12 @@ app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/shop/products", shopProductsRouter);
 app.use("/api/common/feature", commonFeatureRouter);
 
+// Serve static files from the "dist" folder
 app.use(express.static(path.join(__dirname, "dist")));
+
+// Fallback to index.html for React Router routes (this should be last)
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
+
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
