@@ -108,7 +108,7 @@ function ShoppingHeader() {
       <Link to="/" className="flex items-center gap-2">
         {/* Add the logo */}
         <img
-          src="src/assets\postboxnews-logo.png"
+          src="/assets/postboxnews-logo.png"
           alt="Postbox News Logo"
           className="h-8 w-auto"
         />
