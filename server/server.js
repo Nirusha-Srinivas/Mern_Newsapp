@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS
 app.use(
   cors({
-    origin: 'https://postboxnews.com', // Update this to your production frontend URL
+    origin: ["http://postboxnews.com", "https://postboxnews.com"], // Update this to your production frontend URL
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Expires", "Pragma"],
