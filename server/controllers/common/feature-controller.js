@@ -27,8 +27,7 @@ const addFeatureImage = async (req, res) => {
 
 const getFeatureImages = async (req, res) => {
   try {
-    const images = await Feature.find({});
-
+    const images = await Feature.find({}).sort({ createdAt: -1 });
     res.status(200).json({
       success: true,
       data: images,
@@ -37,7 +36,7 @@ const getFeatureImages = async (req, res) => {
     console.log(e);
     res.status(500).json({
       success: false,
-      message: "Some error occured!",
+      message: "An error occurred while fetching feature images",
     });
   }
 };

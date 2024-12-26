@@ -6,7 +6,8 @@ const ProductSchema = new mongoose.Schema(
     title: String,
     description: String,
     category: String,
-    averageReview : Number
+    averageReview : Number,
+    createdAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
 );
