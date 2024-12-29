@@ -22,13 +22,12 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS
 app.use(
   cors({
-    origin: ["http://postboxnews.com", "https://postboxnews.com"], // Update this to your production frontend URL
+    origin: ["https://postboxnews.com", "http://postboxnews.com"], 
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Expires", "Pragma"],
   })
 );
-
 // Middleware for parsing cookies and JSON
 app.use(cookieParser());
 app.use(express.json());
